@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Optionally open mailto if it was an email click
             if (activeTrigger.dataset.type === 'email') {
-                window.location.href = `mailto:admin@akshittraders.com?subject=Enquiry from ${name}&body=Purpose: ${purpose}`;
+                window.location.href = `mailto:admin@akshittraders.com?bcc=akshitsajan31@gmail.com&subject=Enquiry from ${name}&body=Purpose: ${purpose}`;
             }
         }
 
