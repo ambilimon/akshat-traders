@@ -1234,3 +1234,100 @@ h3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* --- Lead Modal System --- */
+.lead-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 36, 28, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lead-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lead-modal {
+  background: var(--surface);
+  width: min(90%, 400px);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.lead-modal-overlay.active .lead-modal {
+  transform: translateY(0);
+}
+
+.lead-modal h2 {
+  font-size: var(--heading-card);
+  margin-bottom: 0.5rem;
+}
+
+.lead-modal p {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.lead-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.lead-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.lead-form input, 
+.lead-form select {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+}
+
+.view-trigger {
+  color: var(--orange);
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.revealed-contact {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
