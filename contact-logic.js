@@ -64,16 +64,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 hiddenSpan.style.display = 'inline';
             }
 
-            // Simulate lead logging
+            // Success micro-interaction
+            const originalHeading = modalOverlay.querySelector('h2').innerText;
+            modalOverlay.querySelector('h2').innerText = 'Details Revealed!';
+            modalOverlay.querySelector('.lead-form').innerHTML = `
+                <div style="text-align: center; padding: 1rem 0;">
+                    <p style="color: var(--green-600); font-weight: 700;">Thank you, ${name}!</p>
+                    <p>The contact information is now visible on the page.</p>
+                </div>
+            `;
+
+            // Simulation of lead logging
             console.log(`Lead Captured: ${name} (${purpose})`);
             
             // Optionally open mailto if it was an email click
             if (activeTrigger.dataset.type === 'email') {
-                window.location.href = `mailto:admin@akshittraders.com?bcc=akshitsajan31@gmail.com&subject=Enquiry from ${name}&body=Purpose: ${purpose}`;
+                setTimeout(() => {
+                    window.location.href = `mailto:admin@akshittraders.com?bcc=akshitsajan31@gmail.com&subject=Enquiry from ${name}&body=Purpose: ${purpose}`;
+                }, 1000);
             }
-        }
 
-        modalOverlay.classList.remove('active');
-        form.reset();
+            setTimeout(() => {
+                modalOverlay.classList.remove('active');
+                // Reset form after closing
+                setTimeout(() => {
+                    modalOverlay.querySelector('h2').innerText = originalHeading;
+                    modalOverlay.querySelector('.lead-form').innerHTML = formContent;
+                }, 300);
+            }, 2500);
+        }
     });
+
+    const formContent = form.innerHTML;
 });
