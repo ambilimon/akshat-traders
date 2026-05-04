@@ -36,7 +36,7 @@ The final CSS uses a shared fluid type scale instead of screenshot-sized one-off
 `styles.css` is now a single clean cascade rather than old screenshot rules plus later overrides. It is organized around global tokens, base elements, shared components, page sections, mobile-first defaults, desktop rules, and tablet rules. The site keeps static HTML/CSS only; Bootstrap and Tailwind are intentionally not used for this pass.
 
 ## Reusable Page Patterns
-Inner pages use an `inner-hero` block, card grids, specification tables, static forms, FAQ details, and the same CTA band/footer system as the landing page. Forms use `mailto:info@akshittraders.com` until a backend is added.
+Inner pages use an `inner-hero` block, card grids, specification tables, static forms, FAQ details, and the same CTA band/footer system as the landing page. Forms use `mailto:admin@akshittraders.com` until a backend is added.
 
 ## Colors And Typography
 Primary green `#003d31`, secondary green `#004434`, icon green `#4b7f2b`, accent orange `#f48518`, text `#10221e`, border `#e8ece7`, and Inter with Arial/Helvetica fallback.
