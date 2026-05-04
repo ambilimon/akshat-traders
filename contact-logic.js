@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <input type="text" name="name" required placeholder="John Doe">
                 </label>
                 <label>
+                    Email Address
+                    <input type="email" name="email" required placeholder="john@example.com">
+                </label>
+                <label>
                     Purpose of Enquiry
                     <select name="purpose" required>
                         <option value="">Select Purpose</option>
@@ -52,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const formData = new FormData(form);
         const name = formData.get('name');
+        const email = formData.get('email');
         const purpose = formData.get('purpose');
 
         // Reveal logic
@@ -75,12 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
 
             // Simulation of lead logging
-            console.log(`Lead Captured: ${name} (${purpose})`);
+            console.log(`Lead Captured: ${name} <${email}> (${purpose})`);
             
             // Optionally open mailto if it was an email click
             if (activeTrigger.dataset.type === 'email') {
                 setTimeout(() => {
-                    window.location.href = `mailto:admin@akshittraders.com?bcc=akshitsajan31@gmail.com&subject=Enquiry from ${name}&body=Purpose: ${purpose}`;
+                    window.location.href = `mailto:admin@akshittraders.com?bcc=akshitsajan31@gmail.com&subject=Enquiry from ${name}&body=Lead Details:%0D%0AName: ${name}%0D%0AEmail: ${email}%0D%0APurpose: ${purpose}`;
                 }, 1000);
             }
 
